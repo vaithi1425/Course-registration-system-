@@ -1,0 +1,56 @@
+// Base class
+class User {
+    String name;
+    String email;
+
+    User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    void register() {
+        System.out.println(name + " has been registered with email " + email + ".");
+    }
+}
+
+// Derived class: Student
+class Student extends User {
+    String studentId;
+
+    Student(String name, String email, String studentId) {
+        super(name, email);
+        this.studentId = studentId;
+    }
+
+    void enrollCourse(String courseName) {
+        System.out.println("Student " + name + " enrolled in " + courseName + ".");
+    }
+}
+
+// Derived class: Instructor
+class Instructor extends User {
+    String instructorId;
+
+    Instructor(String name, String email, String instructorId) {
+        super(name, email);
+        this.instructorId = instructorId;
+    }
+
+    void createCourse(String courseName) {
+        System.out.println("Instructor " + name + " created course " + courseName + ".");
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student("Aarav", "aarav@example.com", "S101");
+        Instructor i1 = new Instructor("Dr. Meera", "meera@example.com", "I202");
+
+        s1.register(); // inherited from User
+        s1.enrollCourse("Math 101");
+
+        i1.register(); // inherited from User
+        i1.createCourse("Physics 201");
+    }
+}
